@@ -4,6 +4,7 @@ const cookieSession = require("cookie-session");
 
 require("./backend/services/mongoDB");
 require("./backend/services/passport");
+require("dotenv").config();
 
 const { loginRoutes } = require("./backend/routes/login");
 const { registerRoutes } = require("./backend/routes/register");
@@ -21,7 +22,7 @@ app.use(
 app.use(
     cookieSession({
         maxAge: 1000 * 60 * 60 * 12,
-        keys: ["mykey"],
+        keys: [process.env.COOKIE_KEY],
     })
 );
 app.use(passport.initialize());

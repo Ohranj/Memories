@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
-//Components
 import SignInBtn from "./SignInBtn";
 
-//api request
 import localLogin from "../../../api/localLogin";
 
 class LoginForm extends Component {
@@ -12,7 +10,7 @@ class LoginForm extends Component {
         password: "",
     };
 
-    updateInputs = ({ target }) => {
+    handleInputs = ({ target }) => {
         this.setState({
             [target.name]: target.value,
         });
@@ -29,18 +27,18 @@ class LoginForm extends Component {
                         <div className="row">
                             <div className="input-field col s5">
                                 <input
-                                    placeholder="email..."
+                                    placeholder="Email..."
                                     name="email"
                                     type="email"
-                                    onChange={(e) => this.updateInputs(e)}
+                                    onChange={(e) => this.handleInputs(e)}
                                 />
                             </div>
                             <div className="input-field col s4">
                                 <input
-                                    placeholder="password..."
+                                    placeholder="Password..."
                                     name="password"
                                     type="password"
-                                    onChange={(e) => this.updateInputs(e)}
+                                    onChange={(e) => this.handleInputs(e)}
                                 />
                             </div>
                             <div className="input-field col s3 signInBtnColumn">

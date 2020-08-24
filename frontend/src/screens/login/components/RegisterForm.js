@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 
 import RegisterBtn from "./RegisterBtn";
+import PasswordTip from "./PasswordTip";
 import register from "../../../api/register";
 
 class RegisterForm extends Component {
-    state = {
+    initalState = {
         firstname: "",
         surname: "",
         email: "",
         password: "",
     };
 
+    state = this.initalState;
+
     handleInputs({ target }) {
         this.setState({ [target.name]: target.value });
     }
+
+    submitForm = (e) => {
+        register(e, this.state, () => {
+            this.setState(this.initalState);
+        });
+    };
 
     render() {
         return (
             <form
                 className="col s12 registerForm"
-                onSubmit={(e) => register(e, this.state)}
+                onSubmit={(e) => this.submitForm(e)}
             >
                 <div className="row">
                     <div className="input-field col s6">
@@ -27,6 +36,8 @@ class RegisterForm extends Component {
                             type="text"
                             placeholder="Firstname"
                             name="firstname"
+                            required
+                            value={this.state.firstname}
                             onChange={(e) => this.handleInputs(e)}
                         />
                     </div>
@@ -35,6 +46,8 @@ class RegisterForm extends Component {
                             type="text"
                             placeholder="Surname"
                             name="surname"
+                            required
+                            value={this.state.surname}
                             onChange={(e) => this.handleInputs(e)}
                         />
                     </div>
@@ -43,20 +56,27 @@ class RegisterForm extends Component {
                     <div className="input-field col s12">
                         <input
                             type="email"
-                            placeholder="email"
+                            placeholder="Email"
                             name="email"
+                            required
+                            value={this.state.email}
                             onChange={(e) => this.handleInputs(e)}
                         />
                     </div>
                 </div>
                 <div className="row">
-                    <div className="input-field col s12">
+                    <div className="input-field col s6">
                         <input
                             type="password"
-                            placeholder="password"
+                            placeholder="Password"
                             name="password"
+                            required
+                            value={this.state.password}
                             onChange={(e) => this.handleInputs(e)}
                         />
+                    </div>
+                    <div className="input-field col s6">
+                        <PasswordTip password={this.state.password} />
                     </div>
                 </div>
                 <div className="row">

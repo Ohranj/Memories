@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default (e, { firstname, surname, email, password }) => {
+export default (e, { firstname, surname, email, password }, resetInputs) => {
     e.preventDefault();
     axios({
         method: "post",
@@ -11,5 +11,5 @@ export default (e, { firstname, surname, email, password }) => {
             email,
             password,
         },
-    });
+    }).then(() => resetInputs());
 };
