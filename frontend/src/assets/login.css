@@ -1,0 +1,57 @@
+.loginContainer {
+    min-height: 100vh;
+}
+.loginScreenBody {
+    height: 70vh;
+}
+.loginFormRow {
+    height: 10vh;
+}
+.loginFormRow > .loginFormColumn {
+    height: 100%;
+}
+.signInBtnColumn {
+    padding: 0 5px !important;
+}
+.signInBtn {
+    margin-top: 8px;
+    width: 100%;
+}
+.collageColumn,
+.registerColumn {
+    height: 100%;
+}
+.registerForm > .row {
+    margin: 0 !important;
+}
+.registerColumn > .row:nth-child(1) {
+    height: 25%;
+}
+.registerColumn > .row:nth-child(2) {
+    height: 70%;
+}
+.registerColumn > .row > div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.registerColumn > .row:nth-child(1) > div {
+    align-items: flex-end;
+}
+.registerColumn > .row:nth-child(2) > div {
+    align-items: flex-start;
+}
+.collageColumn > ul {
+    margin: 0 auto !important;
+}
+.collage {
+    height: 100%;
+}
+.collapsible > li {
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.collapsible-body {
+    height: 35vh;
+}

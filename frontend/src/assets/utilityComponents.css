@@ -1,0 +1,24 @@
+body,
+button,
+::placeholder {
+    font-family: "Noto Sans JP", sans-serif !important;
+}
+h4 {
+    font-family: "Courgette", cursive;
+}
+input:focus {
+    border-bottom: 1px solid #9575cd !important;
+    box-shadow: 0 1px 0 0 #9575cd !important;
+}
+::placeholder {
+    color: #000000;
+}
+nav {
+    height: 100%;
+}
+nav > .nav-wrapper {
+    flex-direction: row-reverse;
+}
+.headerContainer {
+    height: 10vh;
+}

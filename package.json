@@ -1,0 +1,26 @@
+{
+    "name": "memories",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "node server.js",
+        "server": "nodemon server.js",
+        "dev": "concurrently \"yarn run server\" \"cd frontend && yarn start\""
+    },
+    "dependencies": {
+        "axios": "^0.20.0",
+        "concurrently": "^5.3.0",
+        "cookie-session": "^1.4.0",
+        "express": "^4.17.1",
+        "framer-motion": "^2.6.0",
+        "http-proxy-middleware": "^1.0.5",
+        "materialize-css": "^1.0.0",
+        "mongoose": "^5.10.0",
+        "nodemon": "^2.0.4",
+        "passport": "^0.4.1",
+        "passport-google-oauth20": "^2.0.0",
+        "react-materialize": "^3.9.2",
+        "react-router-dom": "^5.2.0"
+    }
+}
