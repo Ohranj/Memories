@@ -6,6 +6,7 @@
 }
 .loginFormRow {
     height: 10vh;
+    position: relative;
 }
 .loginFormRow > .loginFormColumn {
     height: 100%;
@@ -67,4 +68,20 @@
 }
 .passwordTipValid {
     text-decoration: line-through #000000 wavy;
+}
+.loginMsg {
+    position: absolute;
+    bottom: -40px;
+}
+.loginMsgSuccess {
+    right: 15%;
+    display: flex;
+    align-items: center;
+}
+.loginMsgError {
+    right: 10%;
+    color: red;
+}
+.loginMsgSuccess > .preloader-wrapper {
+    margin-right: 10px;
 }

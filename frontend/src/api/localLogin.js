@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default (e, { email, password }) => {
+export default (e, { email, password }, cb) => {
     e.preventDefault();
     axios({
         method: "post",
@@ -11,7 +11,10 @@ export default (e, { email, password }) => {
         },
     })
         .then(({ status }) => {
-            console.log(status);
+            setTimeout(() => {
+                window.location.href = "/home";
+            }, 2500);
+            cb(status);
         })
-        .catch((err) => console.log(err.response, "no match"));
+        .catch(({ response: { status } }) => cb(status));
 };

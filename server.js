@@ -8,6 +8,7 @@ require("dotenv").config();
 
 const { loginRoutes } = require("./backend/routes/login");
 const { registerRoutes } = require("./backend/routes/register");
+const { userRoutes } = require("./backend/routes/account");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -31,6 +32,7 @@ app.use(passport.session());
 //Configure routes
 app.use("/login", loginRoutes);
 app.use("/register", registerRoutes);
+app.use("/account", userRoutes);
 
 //Run server
 app.listen(PORT, () => {

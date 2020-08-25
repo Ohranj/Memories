@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import SignInBtn from "./SignInBtn";
+import SignInBtn from "../../../utilityComponents/SignInBtn";
+import LoginMsg from "./LoginMsg";
 
 import localLogin from "../../../api/localLogin";
 
@@ -8,6 +9,7 @@ class LoginForm extends Component {
     state = {
         email: "",
         password: "",
+        validLogin: null,
     };
 
     handleInputs = ({ target }) => {
@@ -22,7 +24,13 @@ class LoginForm extends Component {
                 <div className="col s5 offset-s7 loginFormColumn">
                     <form
                         className="col s12"
-                        onSubmit={(e) => localLogin(e, this.state)}
+                        onSubmit={(e) =>
+                            localLogin(e, this.state, (status) => {
+                                status === 201
+                                    ? this.setState({ validLogin: true })
+                                    : this.setState({ validLogin: false });
+                            })
+                        }
                     >
                         <div className="row">
                             <div className="input-field col s5">
@@ -47,6 +55,7 @@ class LoginForm extends Component {
                         </div>
                     </form>
                 </div>
+                <LoginMsg validLogin={this.state.validLogin} />
             </div>
         );
     }

@@ -1,9 +1,24 @@
 import React from "react";
 
+import "../assets/utilityComponents.css";
+
+import SignOutBtn from "./SignOutBtn";
+
 export default () => {
     return (
-        <a href="login/logout">
-            <button>Sign out</button>
-        </a>
+        <div className="headerContainer">
+            <nav className="deep-purple lighten-2">
+                <div className="nav-wrapper valign-wrapper">
+                    <a href="/" className="brand-logo center">
+                        <h4>Memories</h4>
+                    </a>
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        <li>
+                            <SignOutBtn />
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     );
 };

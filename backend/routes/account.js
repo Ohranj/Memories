@@ -6,3 +6,5 @@ router.get("/user", (req, res) => {
 });
 ////
 //
+
+exports.userRoutes = router;

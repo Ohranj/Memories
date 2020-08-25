@@ -15,7 +15,7 @@ router.get("/google/callback", passport.authenticate("google"), (req, res) => {
 
 //Login with local
 router.post("/local", passport.authenticate("local"), (req, res) => {
-    res.status(201).send("ok");
+    res.sendStatus(201);
 });
 ////
 //
