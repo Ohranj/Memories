@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 
 class PasswordTips extends Component {
+    state = {
+        validPassword: false,
+    };
     componentDidUpdate() {
+        const { characterTip, numberTip } = this.refs;
         this.props.password.length >= 5
-            ? this.tipValid(this.refs.characterTip)
-            : this.tipInvalid(this.refs.characterTip);
+            ? this.tipValid(characterTip)
+            : this.tipInvalid(characterTip);
         /\d/.test(this.props.password)
-            ? this.tipValid(this.refs.numberTip)
-            : this.tipInvalid(this.refs.numberTip);
+            ? this.tipValid(numberTip)
+            : this.tipInvalid(numberTip);
     }
 
     tipValid = (tip) => {

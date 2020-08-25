@@ -11,5 +11,7 @@ export default (e, { firstname, surname, email, password }, resetInputs) => {
             email,
             password,
         },
-    }).then(() => resetInputs());
+    })
+        .then(() => resetInputs())
+        .catch((err) => alert("User already exists"));
 };

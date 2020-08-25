@@ -9,5 +9,9 @@ export default (e, { email, password }) => {
             email,
             password,
         },
-    });
+    })
+        .then(({ status }) => {
+            console.log(status);
+        })
+        .catch((err) => console.log(err.response, "no match"));
 };

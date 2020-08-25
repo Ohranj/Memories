@@ -21,6 +21,7 @@ class RegisterForm extends Component {
     submitForm = (e) => {
         register(e, this.state, () => {
             this.setState(this.initalState);
+            alert("Success!! Thank you for registering. You can login now");
         });
     };
 
@@ -72,7 +73,9 @@ class RegisterForm extends Component {
                             name="password"
                             required
                             value={this.state.password}
-                            onChange={(e) => this.handleInputs(e)}
+                            onChange={(e) => {
+                                this.handleInputs(e);
+                            }}
                         />
                     </div>
                     <div className="input-field col s6">
@@ -81,7 +84,7 @@ class RegisterForm extends Component {
                 </div>
                 <div className="row">
                     <div className="input-field col s4 offset-s4">
-                        <RegisterBtn />
+                        <RegisterBtn password={this.state.password} />
                     </div>
                 </div>
             </form>
