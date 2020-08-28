@@ -24,6 +24,7 @@ nav > .nav-wrapper {
 }
 .profileImg {
     width: auto;
+    max-width: 175px;
     height: 80%;
     position: absolute;
     top: 10%;

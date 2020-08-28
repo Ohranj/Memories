@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import ProfileImgTooltip from "./profileImgTooltip";
+
 import changeProfileImg from "../../../api/changeProfileImg";
 
 class UploadProfileImg extends Component {
@@ -10,15 +12,17 @@ class UploadProfileImg extends Component {
 
     submitForm = (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append("filename", this.state.filename);
-        formData.append("file", this.state.file);
-        changeProfileImg(formData);
+        changeProfileImg(this.state, () => {
+            window.location.reload();
+        });
     };
 
     render() {
         return (
-            <div className="row valign-wrapper">
+            <div
+                className="row valign-wrapper"
+                style={{ position: "relative" }}
+            >
                 <div className="col s4">
                     <p>Change your profile image</p>
                 </div>
@@ -33,6 +37,7 @@ class UploadProfileImg extends Component {
                                 <input
                                     type="file"
                                     name="file"
+                                    accept=".jpg, .png, .jpeg"
                                     onChange={(e) =>
                                         this.setState({
                                             file: e.target.files[0],
@@ -59,6 +64,7 @@ class UploadProfileImg extends Component {
                         </button>
                     </div>
                 </form>
+                <ProfileImgTooltip />
             </div>
         );
     }
