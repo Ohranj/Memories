@@ -1,0 +1,19 @@
+input,
+input:active {
+    border-bottom: 1px solid #9575cd !important;
+    box-shadow: 0 1px 0 0 #9575cd !important;
+}
+.accountContainer {
+    min-height: 100vh;
+}
+.accountScreenBody {
+    height: 88vh;
+}
+.accountScreenBody > div {
+    height: 100%;
+    padding: 10vh 0 0 5vw !important;
+}
+.openFileExplorerBtn,
+.openFileExplorerBtn:hover {
+    background-color: #9575cd;
+}

@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 
+import "../../assets/dashboard.css";
+
 import HeaderAuth from "../../utilityComponents/HeaderAuth";
 
 class Dashboard extends Component {
     render() {
         return (
-            <div>
+            <div className="dashboardContainer purple lighten-5">
                 <HeaderAuth />
-                {this.props.name}
+                {this.props.user.name}
             </div>
         );
     }

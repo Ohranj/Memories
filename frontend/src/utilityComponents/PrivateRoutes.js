@@ -10,7 +10,7 @@ class PrivateRoute extends Component {
         authChecked: false,
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.storeUser().then(() => {
             this.setState({ authChecked: true });
         });
@@ -19,7 +19,7 @@ class PrivateRoute extends Component {
     render() {
         if (this.state.authChecked) {
             return this.props.user.name ? (
-                <this.props.component name={this.props.user.name} />
+                <this.props.component user={this.props.user} />
             ) : (
                 <Redirect to="/" />
             );

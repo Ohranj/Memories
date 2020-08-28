@@ -22,3 +22,10 @@ nav > .nav-wrapper {
 .headerContainer {
     height: 10vh;
 }
+.profileImg {
+    width: auto;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 15px;
+}

@@ -7,6 +7,7 @@ import "materialize-css/dist/js/materialize.min";
 import PrivateRoute from "./utilityComponents/PrivateRoutes";
 import Dashboard from "./screens/dashboard/Dashboard";
 import Login from "./screens/login/Login";
+import Account from "./screens/account/Account";
 
 export default () => {
     return (
@@ -14,6 +15,7 @@ export default () => {
             <Switch>
                 <Route path="/" exact component={Login} />
                 <PrivateRoute path="/home" component={Dashboard} />
+                <PrivateRoute path="/account" component={Account} />
             </Switch>
         </BrowserRouter>
     );

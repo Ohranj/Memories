@@ -20,6 +20,7 @@ app.use(
         extended: true,
     })
 );
+app.use(express.static("./backend/uploads"));
 app.use(
     cookieSession({
         maxAge: 1000 * 60 * 60 * 12,

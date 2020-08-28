@@ -42,6 +42,7 @@ passport.use(
                         firstname: profile.name.givenName,
                         surname: profile.name.familyName,
                         email: profile._json.email,
+                        profileImg: "default1.jpg",
                     })
                         .save()
                         .then((user) => {
