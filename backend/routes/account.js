@@ -42,11 +42,7 @@ router.get("/user", (req, res) => {
 
 //Update user profile image, save to server and change in MongoDB
 router.post("/newprofileimg", multerUpload.single("file"), (req, res) => {
-    let modelToSearch;
-    req.user.toObject().hasOwnProperty("password")
-        ? (modelToSearch = LocalModel)
-        : (modelToSearch = GoogleModel);
-    modelToSearch.findByIdAndUpdate(
+    req.model.findByIdAndUpdate(
         req.user.id,
         { profileImg: req.file.originalname },
         (err, user) => {
@@ -56,5 +52,11 @@ router.post("/newprofileimg", multerUpload.single("file"), (req, res) => {
 });
 ////
 //
+
+//Add an additional email address for notification
+router.post("/newemail", (req, res) => {
+    console.log(req.body, req.model);
+    //req.model.findByIdAndUpdate(req.user.id)
+});
 
 exports.userRoutes = router;

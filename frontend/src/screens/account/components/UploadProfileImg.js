@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ProfileImgTooltip from "./profileImgTooltip";
+import ProfileImgTooltip from "./ProfileImgTooltip";
 
 import changeProfileImg from "../../../api/changeProfileImg";
 
@@ -8,21 +8,24 @@ class UploadProfileImg extends Component {
     state = {
         filename: "",
         file: "",
+        hasUploaded: false,
     };
 
     submitForm = (e) => {
         e.preventDefault();
         changeProfileImg(this.state, () => {
-            window.location.reload();
+            this.setState({
+                hasUploaded: true,
+            });
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
         });
     };
 
     render() {
         return (
-            <div
-                className="row valign-wrapper"
-                style={{ position: "relative" }}
-            >
+            <div className="row valign-wrapper uploadProfileImgContainer">
                 <div className="col s4">
                     <p>Change your profile image</p>
                 </div>
@@ -64,7 +67,7 @@ class UploadProfileImg extends Component {
                         </button>
                     </div>
                 </form>
-                <ProfileImgTooltip />
+                <ProfileImgTooltip hasUploaded={this.state.hasUploaded} />
             </div>
         );
     }

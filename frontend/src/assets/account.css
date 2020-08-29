@@ -10,10 +10,73 @@ input:active {
     height: 87vh;
 }
 .accountScreenBody > div {
-    height: 100%;
+    height: 10%;
     padding: 10vh 0 0 4vw !important;
+}
+.accountScreenBody > .renderEmails {
+    padding-top: 15vh !important;
+}
+.uploadProfileImgContainer {
+    position: relative;
 }
 .openFileExplorerBtn,
 .openFileExplorerBtn:hover {
     background-color: #9575cd;
+}
+.profileImgTooltip {
+    position: absolute;
+    left: 25%;
+    bottom: -50px;
+    text-align: center;
+}
+.profileImgTooltip > .preloader-wrapper {
+    margin-right: 10px;
+}
+.manageEmailsContainer {
+    position: relative;
+    margin-top: 10vh;
+}
+.manageEmailsContainer > div > i {
+    margin: 0 10px;
+    cursor: pointer;
+    color: #9575cd;
+}
+.emailsTooltip {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    left: 12px;
+    top: 30px;
+    background-color: #9575cd;
+    color: #ffffff;
+    padding: 5px;
+    z-index: 1;
+}
+.primaryEmail {
+    background-color: #9575cd !important;
+    color: #ffffff;
+}
+.primaryEmail > a > i {
+    color: #ffffff;
+}
+.newEmailContainer {
+    background-color: #ffffff;
+    color: #9575cd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.newEmailContainer > form > input {
+    display: block;
+    width: 200px !important;
+    height: 20px !important;
+}
+.newEmailContainer > form > button {
+    background-color: #ffffff;
+    border: none;
+}
+.newEmailContainer > form > button > i {
+    color: #2196f3;
+    cursor: pointer;
 }

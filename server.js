@@ -1,6 +1,7 @@
 const express = require("express");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
+const modelToSearch = require("./backend/middleware/modelToSearch");
 
 require("./backend/services/mongoDB");
 require("./backend/services/passport");
@@ -33,7 +34,7 @@ app.use(passport.session());
 //Configure routes
 app.use("/login", loginRoutes);
 app.use("/register", registerRoutes);
-app.use("/account", userRoutes);
+app.use("/account", modelToSearch, userRoutes);
 
 //Run server
 app.listen(PORT, () => {
