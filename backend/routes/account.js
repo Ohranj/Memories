@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const multer = require("multer");
 const path = require("path");
-const GoogleModel = require("../models/GoogleUser");
-const LocalModel = require("../models/LocalUser");
 
 //Multer setup
 const profileImagePath = path.join(__dirname + "/../uploads/profiles");
@@ -55,8 +53,30 @@ router.post("/newprofileimg", multerUpload.single("file"), (req, res) => {
 
 //Add an additional email address for notification
 router.post("/newemail", (req, res) => {
-    console.log(req.body, req.model);
-    //req.model.findByIdAndUpdate(req.user.id)
+    req.model.findByIdAndUpdate(
+        req.user.id,
+        {
+            $push: { additionalEmails: req.body },
+        },
+        { safe: true, new: true },
+        (err, document) => {
+            document ? res.sendStatus(201) : res.sendStatus(401);
+        }
+    );
+});
+
+//Delete an additional email address
+router.delete("/deleteemail", (req, res) => {
+    req.model.findByIdAndUpdate(
+        req.user.id,
+        {
+            $pull: { additionalEmails: { email: req.body.email } },
+        },
+        { safe: true, new: true },
+        (err, document) => {
+            document ? res.sendStatus(201) : res.sendStatus(401);
+        }
+    );
 });
 
 exports.userRoutes = router;

@@ -5,7 +5,7 @@ import "../../assets/account.css";
 import HeaderAuth from "../../utilityComponents/HeaderAuth";
 import UploadProfileImg from "./components/UploadProfileImg";
 import ManageEmails from "./components/ManageEmails";
-import RenderEmails from "./components/RenderEmails";
+import RenderEmails from "./components/RenderEmailsContainer";
 
 class Account extends Component {
     render() {

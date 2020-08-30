@@ -7,14 +7,14 @@ input:active {
     min-height: 100vh;
 }
 .accountScreenBody {
-    height: 87vh;
+    min-height: 70%;
 }
 .accountScreenBody > div {
     height: 10%;
     padding: 10vh 0 0 4vw !important;
 }
 .accountScreenBody > .renderEmails {
-    padding-top: 15vh !important;
+    padding-top: 0vh !important;
 }
 .uploadProfileImgContainer {
     position: relative;
@@ -34,7 +34,6 @@ input:active {
 }
 .manageEmailsContainer {
     position: relative;
-    margin-top: 10vh;
 }
 .manageEmailsContainer > div > i {
     margin: 0 10px;
@@ -72,11 +71,22 @@ input:active {
     width: 200px !important;
     height: 20px !important;
 }
-.newEmailContainer > form > button {
+.newEmailContainer > form > button,
+.additionalEmail > button {
     background-color: #ffffff;
     border: none;
+    cursor: pointer;
+    padding: 0;
 }
 .newEmailContainer > form > button > i {
     color: #2196f3;
     cursor: pointer;
+}
+.additionalEmail {
+    background-color: #ffffff;
+    color: #9575cd;
+    font-weight: 800;
+}
+.additionalEmail > button > i {
+    color: #9575cd;
 }

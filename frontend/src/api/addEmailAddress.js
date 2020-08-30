@@ -8,6 +8,13 @@ export default ({ name, email }, cb) => {
             name,
             email,
         },
-    });
-    cb();
+    })
+        .then(({ status }) => {
+            if (status === 201) {
+                cb(name, email);
+            }
+        })
+        .catch(() => {
+            console.log("error");
+        });
 };
