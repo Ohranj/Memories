@@ -10,7 +10,7 @@ import RenderEmails from "./components/RenderEmailsContainer";
 class Account extends Component {
     render() {
         return (
-            <div className="accountContainer purple lighten-5">
+            <div className="accountContainer">
                 <HeaderAuth />
                 <div className="row accountScreenBody">
                     <div className="col s6 offset-s3">

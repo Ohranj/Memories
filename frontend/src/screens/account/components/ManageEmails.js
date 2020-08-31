@@ -11,7 +11,8 @@ class ManageEmails extends Component {
         return (
             <div className="row manageEmailsContainer">
                 <div className="col s6 valign-wrapper">
-                    Add or remove email addresses to notify
+                    Manage friends to notify (*scroll the container to view
+                    more)
                     <i
                         className="material-icons"
                         onMouseEnter={() =>

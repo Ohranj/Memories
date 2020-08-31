@@ -3,6 +3,9 @@ input:active {
     border-bottom: 1px solid #9575cd !important;
     box-shadow: 0 1px 0 0 #9575cd !important;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 .accountContainer {
     min-height: 100vh;
 }
@@ -15,6 +18,15 @@ input:active {
 }
 .accountScreenBody > .renderEmails {
     padding-top: 0vh !important;
+}
+.renderEmails > div {
+    max-height: 45vh;
+    overflow-y: scroll;
+    border: 3px solid #9675cd;
+    padding: 0;
+}
+.renderEmails > div > ul {
+    margin: 0;
 }
 .uploadProfileImgContainer {
     position: relative;

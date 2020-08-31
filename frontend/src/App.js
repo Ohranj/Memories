@@ -8,6 +8,7 @@ import PrivateRoute from "./utilityComponents/PrivateRoutes";
 import Dashboard from "./screens/dashboard/Dashboard";
 import Login from "./screens/login/Login";
 import Account from "./screens/account/Account";
+import Upload from "./screens/upload/Upload";
 
 export default () => {
     return (
@@ -16,6 +17,7 @@ export default () => {
                 <Route path="/" exact component={Login} />
                 <PrivateRoute path="/home" component={Dashboard} />
                 <PrivateRoute path="/account" component={Account} />
+                <PrivateRoute path="/upload" component={Upload} />
             </Switch>
         </BrowserRouter>
     );
