@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 import SelectOccasion from "./SelectOccasion";
 import UploadImg from "./UploadImg";
-import SubmitUploadBtn from "./SubmitUploadBtn";
+import SubmitUploadForm from "./SubmitUploadForm";
+
+import uploadMemory from "../../../api/uploadMemory";
 
 class UploadFormContainer extends Component {
     state = {
@@ -18,9 +20,27 @@ class UploadFormContainer extends Component {
         this.setState(() => ({ ...this.state, [target.name]: target.value }));
     };
 
+    handleOccasionInput = ({ target }) => {
+        this.setState({
+            occasion: target.value,
+        });
+    };
+
+    handleImgFile = ({ target }) => {
+        this.setState({
+            file: target.files[0],
+            filename: target.files[0].name,
+        });
+    };
+
+    submitNewUpload = (e) => {
+        e.preventDefault();
+        uploadMemory(this.state);
+    };
+
     render() {
         return (
-            <form className="col s6 offset-s3">
+            <form className="col s6 offset-s3" onSubmit={this.submitNewUpload}>
                 <div className="row">
                     <div className="input-field col s8 offset-s2">
                         <input
@@ -32,12 +52,13 @@ class UploadFormContainer extends Component {
                     </div>
                 </div>
                 <div className="row valign-wrapper">
-                    <SelectOccasion />
+                    <SelectOccasion
+                        handleOccasionInput={this.handleOccasionInput}
+                    />
                     <div className="col s3 dateContainer">
                         <div className="input-field col s12">
                             <input
                                 type="date"
-                                className="validate"
                                 onChange={({ target }) =>
                                     this.setState({ date: target.value })
                                 }
@@ -58,10 +79,10 @@ class UploadFormContainer extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <UploadImg />
+                    <UploadImg handleImgFile={this.handleImgFile} />
                 </div>
                 <div className="row center-align">
-                    <SubmitUploadBtn />
+                    <SubmitUploadForm />
                 </div>
             </form>
         );

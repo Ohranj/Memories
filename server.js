@@ -10,6 +10,7 @@ require("dotenv").config();
 const { loginRoutes } = require("./backend/routes/login");
 const { registerRoutes } = require("./backend/routes/register");
 const { userRoutes } = require("./backend/routes/account");
+const { memoryRoutes } = require("./backend/routes/memories");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -35,6 +36,7 @@ app.use(passport.session());
 app.use("/login", loginRoutes);
 app.use("/register", registerRoutes);
 app.use("/account", modelToSearch, userRoutes);
+app.use("/memory", memoryRoutes);
 
 //Run server
 app.listen(PORT, () => {
