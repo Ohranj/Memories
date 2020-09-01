@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default ({ filename, file, title, blurb, date, occasion }) => {
+export default ({ filename, file, title, blurb, date, occasion }, cb) => {
     const formData = new FormData();
     formData.append("filename", filename);
     formData.append("file", file);
@@ -15,5 +15,13 @@ export default ({ filename, file, title, blurb, date, occasion }) => {
             "Content-Type": "multipart/form-data",
         },
         data: formData,
-    });
+    })
+        .then(({ status }) => {
+            if (status === 201) {
+                cb();
+            }
+        })
+        .catch((err) => {
+            console.log(err.response);
+        });
 };

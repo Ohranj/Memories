@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import SelectOccasion from "./SelectOccasion";
 import UploadImg from "./UploadImg";
 import SubmitUploadForm from "./SubmitUploadForm";
+import OnUploadMsg from "./OnUploadMsg";
 
 import uploadMemory from "../../../api/uploadMemory";
 
@@ -14,6 +15,7 @@ class UploadFormContainer extends Component {
         occasion: "",
         filename: "",
         file: "",
+        uploadSubmitted: false,
     };
 
     handleTextInputs = ({ target }) => {
@@ -29,7 +31,15 @@ class UploadFormContainer extends Component {
 
     submitNewUpload = (e) => {
         e.preventDefault();
-        uploadMemory(this.state);
+        this.setState({
+            uploadSubmitted: true,
+        });
+        uploadMemory(this.state, () => {
+            this.setState({
+                uploadSubmitted: false,
+                date: "",
+            });
+        });
     };
 
     render() {
@@ -41,6 +51,7 @@ class UploadFormContainer extends Component {
                             placeholder="Title..."
                             type="text"
                             name="title"
+                            required
                             onChange={(e) => this.handleTextInputs(e)}
                         />
                     </div>
@@ -52,6 +63,8 @@ class UploadFormContainer extends Component {
                             <input
                                 type="date"
                                 name="date"
+                                required
+                                value={this.state.date}
                                 onChange={(e) => this.handleTextInputs(e)}
                             />
                         </div>
@@ -64,6 +77,7 @@ class UploadFormContainer extends Component {
                         <textarea
                             className="materialize-textarea"
                             name="blurb"
+                            required
                             onChange={(e) => this.handleTextInputs(e)}
                         />
                         <label>Here you can write about your memory...</label>
@@ -73,8 +87,11 @@ class UploadFormContainer extends Component {
                     <UploadImg handleImgFile={this.handleImgFile} />
                 </div>
                 <div className="row center-align">
-                    <SubmitUploadForm />
+                    <SubmitUploadForm
+                        uploadSubmitted={this.state.uploadSubmitted}
+                    />
                 </div>
+                <OnUploadMsg uploadSubmitted={this.state.uploadSubmitted} />
             </form>
         );
     }

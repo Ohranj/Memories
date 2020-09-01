@@ -39,3 +39,10 @@ textarea:active {
 .fileSelectBtn:hover {
     background-color: #9575cd;
 }
+.onUploadMsg {
+    display: flex;
+    justify-content: center;
+}
+.onUploadMsg > .preloader-wrapper {
+    margin: 0 5px;
+}

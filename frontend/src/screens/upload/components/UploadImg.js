@@ -9,6 +9,7 @@ export default (props) => {
                     <span>File</span>
                     <input
                         type="file"
+                        required
                         accept=".jpg, .png, .jpeg"
                         onChange={(e) => props.handleImgFile(e)}
                     />
