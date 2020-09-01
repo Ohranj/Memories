@@ -20,12 +20,6 @@ class UploadFormContainer extends Component {
         this.setState(() => ({ ...this.state, [target.name]: target.value }));
     };
 
-    handleOccasionInput = ({ target }) => {
-        this.setState({
-            occasion: target.value,
-        });
-    };
-
     handleImgFile = ({ target }) => {
         this.setState({
             file: target.files[0],
@@ -52,16 +46,13 @@ class UploadFormContainer extends Component {
                     </div>
                 </div>
                 <div className="row valign-wrapper">
-                    <SelectOccasion
-                        handleOccasionInput={this.handleOccasionInput}
-                    />
+                    <SelectOccasion handleTextInput={this.handleTextInputs} />
                     <div className="col s3 dateContainer">
                         <div className="input-field col s12">
                             <input
                                 type="date"
-                                onChange={({ target }) =>
-                                    this.setState({ date: target.value })
-                                }
+                                name="date"
+                                onChange={(e) => this.handleTextInputs(e)}
                             />
                         </div>
                     </div>
@@ -75,7 +66,7 @@ class UploadFormContainer extends Component {
                             name="blurb"
                             onChange={(e) => this.handleTextInputs(e)}
                         />
-                        <label>Here you can write about the memory...</label>
+                        <label>Here you can write about your memory...</label>
                     </div>
                 </div>
                 <div className="row">

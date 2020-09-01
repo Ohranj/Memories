@@ -36,7 +36,7 @@ app.use(passport.session());
 app.use("/login", loginRoutes);
 app.use("/register", registerRoutes);
 app.use("/account", modelToSearch, userRoutes);
-app.use("/memory", memoryRoutes);
+app.use("/memory", modelToSearch, memoryRoutes);
 
 //Run server
 app.listen(PORT, () => {

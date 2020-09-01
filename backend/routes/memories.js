@@ -1,37 +1,43 @@
 const router = require("express").Router();
 const multer = require("multer");
-const path = require("path");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const MemoryModel = require("../models/Memory");
 
-const profileImagePath = path.join(__dirname + "/../uploads/memories");
+const cloudinary = require("../services/cloudinary");
 
-const multerStorageDetail = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, profileImagePath);
-    },
-    filename: (req, files, cb) => {
-        const filename = files.originalname;
-        cb(null, filename);
-    },
-});
-
-const multerUpload = multer({
-    storage: multerStorageDetail,
-    fileFilter: (req, file, cb) => {
-        if (
-            !file.mimetype == "image/png" ||
-            !file.mimetype == "image/jpeg" ||
-            !file.mimetype == "image/jpg"
-        ) {
-            cb(null, false);
-            return cb(new Error("File type not allowed"));
-        }
-        cb(null, true);
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: async (req) => {
+        return {
+            folder: req.user.id,
+            allowedFormats: ["jpg", "png", "jpeg"],
+            transformation: [{ width: 500, height: 500, crop: "limit" }],
+        };
     },
 });
+const parser = multer({ storage });
 
 //Upload new memory
-router.post("/upload", multerUpload.single("file"), (req, res) => {
-    console.log(req.body);
+router.post("/upload", parser.single("file"), (req, res) => {
+    const { title, date, occasion, blurb } = req.body;
+    req.model.findByIdAndUpdate(
+        req.user.id,
+        {
+            $push: {
+                memories: new MemoryModel({
+                    title,
+                    date,
+                    scenario: occasion,
+                    blurb,
+                    memoryImg: req.file.path,
+                }),
+            },
+        },
+        { safe: true, new: true },
+        (err, document) => {
+            document ? res.sendStatus(201) : res.sendStatus(401);
+        }
+    );
 });
 
 exports.memoryRoutes = router;

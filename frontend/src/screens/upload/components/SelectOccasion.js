@@ -4,7 +4,7 @@ export default (props) => {
     return (
         <div
             className="col s7 offset-s1 occasionContainer"
-            onChange={props.handleOccasionInput}
+            onChange={props.handleTextInput}
         >
             <p>Please select the occasion:</p>
             <span>

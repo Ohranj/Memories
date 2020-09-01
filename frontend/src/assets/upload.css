@@ -6,16 +6,16 @@ textarea:active {
     border-bottom: 1px solid #9575cd !important;
     box-shadow: 0 1px 0 0 #9575cd !important;
 }
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+    background-color: #9575cd;
+    border-color: #9575cd;
+}
 .uploadContainer {
     min-height: 100vh;
 }
 .uploadContainer > div > form {
     padding-top: 10vh !important;
-}
-[type="radio"]:checked + span:after,
-[type="radio"].with-gap:checked + span:after {
-    background-color: #9575cd;
-    border-color: #9575cd;
 }
 .blurbInput > i {
     color: #9575cd !important;
@@ -33,7 +33,7 @@ textarea:active {
     padding-top: 30px !important;
 }
 .imgUploadContainer > div {
-    width: 75%;
+    width: 70%;
 }
 .fileSelectBtn,
 .fileSelectBtn:hover {
