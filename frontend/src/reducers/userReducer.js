@@ -15,6 +15,7 @@ export default (state = {}, action) => {
                 name: firstname,
                 memories,
                 profileImg,
+                filter: "showall",
             };
         case "REMOVE_EMAIL":
             return {
@@ -30,6 +31,11 @@ export default (state = {}, action) => {
                     ...state.additionalEmails,
                     { name: action.name, email: action.email },
                 ],
+            };
+        case "FILTER_CARDS":
+            return {
+                ...state,
+                filter: action.term,
             };
         default:
             return state;

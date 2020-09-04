@@ -1,12 +1,38 @@
+[type="radio"]:not(:checked) + span,
+[type="radio"]:checked + span {
+    padding-left: 25px !important;
+}
 .dashboardContainer {
     min-height: 100vh;
 }
-.infoTip {
-    color: #000000;
+.infoTipContainer {
+    position: relative;
+    z-index: 1;
 }
+.infoTipContainer > div {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+}
+.infoTip,
 .infoTip > span {
+    color: #000000;
     background-color: #9675cd !important;
     cursor: pointer;
+}
+.breakdownTip > div {
+    background-color: #ffffff;
+}
+.breakdownTip > div > span {
+    background-color: #ffffff !important;
+    color: #9675cd !important;
+    padding-left: 32px;
+}
+.infoTip > i {
+    color: #ffffff;
+}
+.collection-item {
+    padding: 10 0 !important;
 }
 .sortBtnsContainer {
     margin: 7.25px 0 14px 0 !important;
@@ -19,6 +45,9 @@
 .sortBtn {
     background-color: #9675cd;
     margin: 0 4px;
+}
+.sortBtn:hover {
+    background-color: #9675cd;
 }
 .filterOptionsContainer {
     padding: 0 25px;
@@ -35,6 +64,8 @@
 }
 .radioBtnLabel {
     padding-left: 25px;
+    color: #9675cd;
+    font-weight: 800;
 }
 .memoryCardsContainer {
     display: flex;
@@ -44,7 +75,7 @@
 .card {
     height: 45vh;
     width: 32%;
-    margin: 1% 0.5%;
+    margin: 0.5% 0.6%;
 }
 .card > .card-image > img {
     height: 225px;

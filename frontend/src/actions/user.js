@@ -25,3 +25,11 @@ export const addEmail = (name, email) => {
         email,
     };
 };
+
+//Filter memory cards
+export const filterCards = (term) => {
+    return {
+        type: "FILTER_CARDS",
+        term,
+    };
+};

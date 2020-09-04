@@ -7,7 +7,10 @@ class MemoryCardsContainer extends Component {
         return (
             <div className="col s10 offset-s1">
                 <div className="memoryCardsContainer">
-                    <RenderMemoryCards memories={this.props.memories} />
+                    <RenderMemoryCards
+                        memories={this.props.memories}
+                        filter={this.props.filterTerm}
+                    />
                 </div>
             </div>
         );

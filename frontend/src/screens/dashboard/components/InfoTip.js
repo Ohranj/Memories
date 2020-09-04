@@ -1,20 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default (props) => {
-    return (
-        <div className="col s6 offset-s1 valign-wrapper">
-            <div className="collection valign-wrapper">
-                <div className="collection-item infoTip">
-                    <span
-                        className="new badge"
-                        data-badge-caption="total"
-                        onClick={() => console.log("view last memory added")}
+import BreakdownTip from "./BreakdownTip";
+
+class InfoTip extends Component {
+    state = {
+        showBreakdown: false,
+    };
+    render() {
+        return (
+            <div className="col s6 offset-s1 valign-wrapper infoTipContainer">
+                <div className="collection">
+                    <div
+                        className="collection-item infoTip valign-wrapper"
+                        onMouseEnter={() =>
+                            this.setState({
+                                showBreakdown: true,
+                            })
+                        }
+                        onMouseLeave={() =>
+                            this.setState({ showBreakdown: false })
+                        }
                     >
-                        Memories - {props.user.memories.length}
-                    </span>
-                    {props.user.name}
+                        <i className="material-icons">list</i>
+                        <span className="new badge" data-badge-caption="total">
+                            Memories - {this.props.user.memories.length}
+                        </span>
+                    </div>
+                    {this.state.showBreakdown ? <BreakdownTip /> : null}
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
+
+export default InfoTip;
