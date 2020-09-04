@@ -46,7 +46,8 @@
     background-color: #9675cd;
     margin: 0 4px;
 }
-.sortBtn:hover {
+.sortBtn:hover,
+.sortBtn:focus {
     background-color: #9675cd;
 }
 .filterOptionsContainer {

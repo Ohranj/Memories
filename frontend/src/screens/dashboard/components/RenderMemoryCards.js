@@ -2,15 +2,15 @@ import React from "react";
 
 export default (props) => {
     return props.memories
-        .filter(({ scenario }) => {
-            return props.filter === "showall"
+        .filter(({ scenario }) =>
+            props.filter === "showall"
                 ? scenario === "Holiday" ||
-                      scenario === "Birthday" ||
-                      scenario === "Friends" ||
-                      scenario === "Achievement" ||
-                      scenario === "Other"
-                : scenario === props.filter;
-        })
+                  scenario === "Birthday" ||
+                  scenario === "Friends" ||
+                  scenario === "Achievement" ||
+                  scenario === "Other"
+                : scenario === props.filter
+        )
         .map(({ _id, title, memoryImg, icon, scenario, date, blurb }) => (
             <div className="card z-depth-3" key={_id}>
                 <div className="card-image">
