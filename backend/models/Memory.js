@@ -18,6 +18,7 @@ const memorySchema = Schema({
         type: String,
         required: true,
     },
+    icon: String,
 });
 
 const MemoryModel = model("Memory", memorySchema);

@@ -16,7 +16,7 @@ class HeaderAuth extends Component {
                             <img
                                 src={`http://localhost:8080/profiles/${this.props.user.profileImg}`}
                                 alt="User profile icon"
-                                className="profileImg"
+                                className="profileImg z-depth-1"
                             />
                         </Link>
                         <a href="/home" className="brand-logo center">

@@ -17,6 +17,21 @@ const storage = new CloudinaryStorage({
 });
 const parser = multer({ storage });
 
+const selectIcon = (occasion) => {
+    switch (occasion) {
+        case "Birthday":
+            return "local_bar";
+        case "Holiday":
+            return "airplanemode_active";
+        case "Friends":
+            return "people";
+        case "Achievement":
+            return "star";
+        case "Other":
+            return "favorite";
+    }
+};
+
 //Upload new memory
 router.post("/upload", parser.single("file"), (req, res) => {
     const { title, date, occasion, blurb } = req.body;
@@ -30,6 +45,7 @@ router.post("/upload", parser.single("file"), (req, res) => {
                     scenario: occasion,
                     blurb,
                     memoryImg: req.file.path,
+                    icon: selectIcon(occasion),
                 }),
             },
         },

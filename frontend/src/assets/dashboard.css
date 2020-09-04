@@ -1,3 +1,61 @@
 .dashboardContainer {
     min-height: 100vh;
 }
+.infoTip {
+    color: #000000;
+}
+.infoTip > span {
+    background-color: #9675cd !important;
+    cursor: pointer;
+}
+.sortBtnsContainer {
+    margin: 7.25px 0 14px 0 !important;
+    display: flex;
+    justify-content: flex-end;
+}
+.sortBtnsContainer > ul > li {
+    display: inline-block;
+}
+.sortBtn {
+    background-color: #9675cd;
+    margin: 0 4px;
+}
+.filterOptionsContainer {
+    padding: 0 25px;
+    border-bottom: 2px solid #9675cd;
+}
+.filterOptionsContainer > div {
+    display: inline-block;
+}
+.filterOptionsContainer > div:nth-child(1) {
+    margin-right: 5%;
+}
+.filterOptionsContainer > div > span {
+    margin: 0 7px;
+}
+.radioBtnLabel {
+    padding-left: 25px;
+}
+.memoryCardsContainer {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.card {
+    height: 45vh;
+    width: 32%;
+    margin: 1% 0.5%;
+}
+.card > .card-image > img {
+    height: 225px;
+    width: 100%;
+    cursor: pointer;
+}
+.card-content > .cardPointers {
+    display: flex;
+    justify-content: space-between;
+}
+.card-content > .cardPointers,
+.cardIcon {
+    color: #9675cd;
+}
