@@ -33,3 +33,17 @@ export const filterCards = (term) => {
         term,
     };
 };
+
+//Sort memories by newest date first
+export const sortByNewest = () => {
+    return {
+        type: "SORT_NEWEST",
+    };
+};
+
+//Sort memories by oldest date first
+export const sortByOldest = () => {
+    return {
+        type: "SORT_OLDEST",
+    };
+};

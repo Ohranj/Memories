@@ -10,12 +10,11 @@ import HeaderAuth from "../../utilityComponents/HeaderAuth";
 
 class Dashboard extends Component {
     render() {
-        console.log(this.props.user);
         return (
             <div className="dashboardContainer purple lighten-5">
                 <HeaderAuth />
                 <div className="row">
-                    <InfoTip user={this.props.user} />
+                    <InfoTip noOfMemories={this.props.user.memories.length} />
                     <SortBtns />
                 </div>
                 <div className="row">

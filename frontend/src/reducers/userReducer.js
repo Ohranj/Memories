@@ -37,6 +37,20 @@ export default (state = {}, action) => {
                 ...state,
                 filter: action.term,
             };
+        case "SORT_NEWEST":
+            return {
+                ...state,
+                memories: state.memories.sort(
+                    (a, b) => Date.parse(b.date) - Date.parse(a.date)
+                ),
+            };
+        case "SORT_OLDEST":
+            return {
+                ...state,
+                memories: state.memories.sort(
+                    (a, b) => Date.parse(a.date) - Date.parse(b.date)
+                ),
+            };
         default:
             return state;
     }

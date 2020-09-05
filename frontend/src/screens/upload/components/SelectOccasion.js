@@ -1,42 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default (props) => {
-    return (
-        <div
-            className="col s7 offset-s1 occasionContainer"
-            onChange={props.handleTextInput}
-        >
-            <p>Please select the occasion:</p>
-            <span>
-                <label>
-                    <input name="occasion" type="radio" value="Birthday" />
-                    <span>Birthday</span>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input name="occasion" type="radio" value="Holiday" />
-                    <span>Holiday</span>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input name="occasion" type="radio" value="Friends" />
-                    <span>Friends</span>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input name="occasion" type="radio" value="Achievement" />
-                    <span>Achievement</span>
-                </label>
-            </span>
-            <span>
-                <label>
-                    <input name="occasion" type="radio" value="Other" />
-                    <span>Other</span>
-                </label>
-            </span>
-        </div>
-    );
-};
+class SelectOccasion extends Component {
+    state = {
+        inputValues: [
+            { value: "Birthday", text: "Birthday" },
+            { value: "Holiday", text: "Holiday" },
+            { value: "Friends", text: "Friends" },
+            { value: "Achievement", text: "Achievement" },
+            { value: "Other", text: "Other" },
+        ],
+    };
+
+    render() {
+        return (
+            <div
+                className="col s7 offset-s1 occasionContainer"
+                onChange={this.props.handleTextInput}
+            >
+                <p>Please select the occasion:</p>
+                {this.state.inputValues.map((input) => {
+                    return (
+                        <span>
+                            <label>
+                                <input
+                                    name="occasion"
+                                    type="radio"
+                                    value={input.value}
+                                />
+                                <span>{input.text}</span>
+                            </label>
+                        </span>
+                    );
+                })}
+            </div>
+        );
+    }
+}
+
+export default SelectOccasion;

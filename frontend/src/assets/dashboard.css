@@ -20,10 +20,10 @@
     background-color: #9675cd !important;
     cursor: pointer;
 }
-.breakdownTip > div {
+.breakdownTip {
     background-color: #ffffff;
 }
-.breakdownTip > div > span {
+.breakdownTip > span {
     background-color: #ffffff !important;
     color: #9675cd !important;
     padding-left: 32px;

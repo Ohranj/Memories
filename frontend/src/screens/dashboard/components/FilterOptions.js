@@ -3,6 +3,17 @@ import { connect } from "react-redux";
 import { filterCards } from "../../../actions/user";
 
 class FilterOptions extends Component {
+    state = {
+        inputValues: [
+            { name: "Birthday", text: "Birthdays" },
+            { name: "Holiday", text: "Holidays" },
+            { name: "Friends", text: "Friends" },
+            { name: "Achievement", text: "Achievements" },
+            { name: "Other", text: "Other" },
+            { name: "showall", text: "Show all" },
+        ],
+    };
+
     render() {
         return (
             <div className="col s6 offset-s3 center-align filterOptionsContainer">
@@ -12,72 +23,24 @@ class FilterOptions extends Component {
                         this.props.filterCards(target.value)
                     }
                 >
-                    <span>
-                        <label>
-                            <input
-                                name="occasion"
-                                type="radio"
-                                value="Birthday"
-                            />
-                            <span className="radioBtnLabel">Birthdays</span>
-                        </label>
-                    </span>
-                    <span>
-                        <label>
-                            <input
-                                name="occasion"
-                                type="radio"
-                                value="Holiday"
-                            />
-                            <span className="radioBtnLabel">Holidays</span>
-                        </label>
-                    </span>
-                    <span>
-                        <label>
-                            <input
-                                name="occasion"
-                                type="radio"
-                                value="Friends"
-                            />
-                            <span className="radioBtnLabel">Friends</span>
-                        </label>
-                    </span>
-                    <span>
-                        <label>
-                            <input
-                                name="occasion"
-                                type="radio"
-                                value="Achievement"
-                            />
-                            <span className="radioBtnLabel">Achievements</span>
-                        </label>
-                    </span>
-                    <span>
-                        <label>
-                            <input name="occasion" type="radio" value="Other" />
-                            <span className="radioBtnLabel">Other</span>
-                        </label>
-                    </span>
-                    <span>
-                        <label>
-                            <input
-                                name="occasion"
-                                type="radio"
-                                value="showall"
-                            />
-                            <span className="radioBtnLabel">Show all</span>
-                        </label>
-                    </span>
+                    {this.state.inputValues.map((input, index) => (
+                        <span key={index}>
+                            <label>
+                                <input
+                                    name="occasion"
+                                    type="radio"
+                                    value={input.name}
+                                />
+                                <span className="radioBtnLabel">
+                                    {input.text}
+                                </span>
+                            </label>
+                        </span>
+                    ))}
                 </div>
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        user: state.user,
-    };
-};
-
-export default connect(mapStateToProps, { filterCards })(FilterOptions);
+export default connect(null, { filterCards })(FilterOptions);
