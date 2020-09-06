@@ -51,6 +51,13 @@ export default (state = {}, action) => {
                     (a, b) => Date.parse(a.date) - Date.parse(b.date)
                 ),
             };
+        case "DELETE_MEMORY_CARD":
+            return {
+                ...state,
+                memories: state.memories.filter(
+                    (memory) => memory._id !== action.id
+                ),
+            };
         default:
             return state;
     }

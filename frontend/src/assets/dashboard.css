@@ -7,7 +7,6 @@
 }
 .infoTipContainer {
     position: relative;
-    z-index: 1;
 }
 .infoTipContainer > div {
     position: absolute;
@@ -18,15 +17,6 @@
 .infoTip > span {
     color: #000000;
     background-color: #9675cd !important;
-    cursor: pointer;
-}
-.breakdownTip {
-    background-color: #ffffff;
-}
-.breakdownTip > span {
-    background-color: #ffffff !important;
-    color: #9675cd !important;
-    padding-left: 32px;
 }
 .infoTip > i {
     color: #ffffff;
@@ -90,4 +80,25 @@
 .card-content > .cardPointers,
 .cardIcon {
     color: #9675cd;
+}
+.card-reveal {
+    background-color: #9675cd !important;
+}
+.card-reveal > p,
+.card-reveal > .card-title > i {
+    color: #ffffff;
+}
+.card-reveal > .deleteCardIcon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.confirmDeleteContainer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.confirmDeleteContainer > i {
+    cursor: pointer;
 }

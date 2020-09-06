@@ -1,27 +1,23 @@
 import React, { Component } from "react";
 import { Collapsible, CollapsibleItem, Icon } from "react-materialize";
 
-import stockBirthdayImg from "../../../assets/images/stock-brithday.jpg";
-import stockCat from "../../../assets/images/stock-cat.jpg";
-import stockBusView from "../../../assets/images/stock-busview.jpg";
-
 class Collage extends Component {
     state = {
         loginImages: [
             {
-                img: stockBirthdayImg,
+                img: "http://localhost:8080/ui/stock-brithday.jpg",
                 text: "Celebrating Kelly's birthday...third time this week :)",
                 icon: "local_bar",
                 expanded: true,
             },
             {
-                img: stockCat,
+                img: "http://localhost:8080/ui/stock-cat.jpg",
                 text: "Picking our cat up. We're calling her Suki....or Noodle",
                 icon: "favorite",
                 expanded: false,
             },
             {
-                img: stockBusView,
+                img: "http://localhost:8080/ui/stock-busview.jpg",
                 text:
                     "We were on this hot bus all day lol. Aaron slept the whole journey!!! That view though",
                 icon: "directions_bus",

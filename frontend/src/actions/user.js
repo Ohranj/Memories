@@ -47,3 +47,11 @@ export const sortByOldest = () => {
         type: "SORT_OLDEST",
     };
 };
+
+//Delete memory card from dashboard
+export const deleteMemoryCard = (id) => {
+    return {
+        type: "DELETE_MEMORY_CARD",
+        id,
+    };
+};

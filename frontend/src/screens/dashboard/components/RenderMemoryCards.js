@@ -1,5 +1,7 @@
 import React from "react";
 
+import DeleteMemoryCard from "./DeleteMemoryCard";
+
 export default (props) => {
     return props.memories
         .filter(({ scenario }) =>
@@ -36,6 +38,7 @@ export default (props) => {
                         <i className="material-icons right">close</i>
                     </span>
                     <p>{blurb}</p>
+                    <DeleteMemoryCard cardToDelete={_id} />
                 </div>
             </div>
         ));
