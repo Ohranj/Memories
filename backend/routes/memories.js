@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const mongoose = require("mongoose");
 const multer = require("multer");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const MemoryModel = require("../models/Memory");
@@ -47,9 +48,26 @@ router.post("/upload", parser.single("file"), (req, res) => {
                 }),
             },
         },
-        { safe: true, new: true },
+        { new: true },
         (err, document) => {
-            document ? res.sendStatus(201) : res.sendStatus(401);
+            !err ? res.sendStatus(201) : res.sendStatus(401);
+        }
+    );
+});
+
+//Delete memory
+router.delete("/delete", (req, res) => {
+    const { memory } = req.body;
+    req.model.findByIdAndUpdate(
+        req.user.id,
+        {
+            $pull: {
+                memories: { _id: mongoose.Types.ObjectId(memory) },
+            },
+        },
+        { new: true },
+        (err, document) => {
+            !err ? res.sendStatus(201) : res.sendStatus(401);
         }
     );
 });
