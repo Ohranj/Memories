@@ -26,4 +26,9 @@ module.exports = (app) => {
             target: "http://localhost:8080",
         })
     );
+    app.use(
+        proxy("/profiles/**", {
+            target: "http://localhost:8080",
+        })
+    );
 };

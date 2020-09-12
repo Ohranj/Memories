@@ -14,7 +14,7 @@ class HeaderAuth extends Component {
                     <div className="nav-wrapper valign-wrapper">
                         <Link to="account">
                             <img
-                                src={`http://localhost:8080/profiles/${this.props.user.profileImg}`}
+                                src={`profiles/${this.props.user.profileImg}`}
                                 alt="User profile icon"
                                 className="profileImg z-depth-1"
                             />
