@@ -41,6 +41,7 @@ app.use("/memory", modelToSearch, memoryRoutes);
 
 //Heroku hosting
 if (process.env.NODE_ENV === "production") {
+    app.use(express.static("./backend/uploads"));
     app.use(express.static("frontend/build"));
     app.get("*", (req, res) => {
         res.sendFile(
