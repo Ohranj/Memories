@@ -23,7 +23,7 @@ app.use(
         extended: true,
     })
 );
-app.use(express.static(path.join("./backend/uploads")));
+app.use(express.static(path.join(__dirname, "./backend/uploads")));
 app.use(
     cookieSession({
         maxAge: 1000 * 60 * 60 * 12,
