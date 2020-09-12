@@ -20,7 +20,7 @@ class Collage extends Component {
                 img: "http://localhost:8080/ui/stock-busview.jpg",
                 text:
                     "We were on this hot bus all day lol. Aaron slept the whole journey!!! That view though",
-                icon: "directions_bus",
+                icon: "airplanemode_active",
                 expanded: false,
             },
         ],

@@ -38,6 +38,14 @@ app.use("/register", registerRoutes);
 app.use("/account", modelToSearch, userRoutes);
 app.use("/memory", modelToSearch, memoryRoutes);
 
+//Heroku deployment
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    });
+}
+
 //Run server
 app.listen(PORT, () => {
     console.log("Server running");
