@@ -5,19 +5,19 @@ class Collage extends Component {
     state = {
         loginImages: [
             {
-                img: "http://localhost:8080/ui/stock-brithday.jpg",
+                img: "ui/stock-brithday.jpg",
                 text: "Celebrating Kelly's birthday...third time this week :)",
                 icon: "local_bar",
                 expanded: true,
             },
             {
-                img: "http://localhost:8080/ui/stock-cat.jpg",
+                img: "/ui/stock-cat.jpg",
                 text: "Picking our cat up. We're calling her Suki....or Noodle",
                 icon: "favorite",
                 expanded: false,
             },
             {
-                img: "http://localhost:8080/ui/stock-busview.jpg",
+                img: "/ui/stock-busview.jpg",
                 text:
                     "We were on this hot bus all day lol. Aaron slept the whole journey!!! That view though",
                 icon: "airplanemode_active",

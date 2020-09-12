@@ -21,4 +21,9 @@ module.exports = (app) => {
             target: "http://localhost:8080",
         })
     );
+    app.use(
+        proxy("/ui/**", {
+            target: "http://localhost:8080",
+        })
+    );
 };
