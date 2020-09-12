@@ -1,5 +1,6 @@
 const express = require("express");
 const passport = require("passport");
+const path = require("path");
 const cookieSession = require("cookie-session");
 const modelToSearch = require("./backend/middleware/modelToSearch");
 
