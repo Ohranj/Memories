@@ -12,13 +12,14 @@ class Collage extends Component {
                 expanded: true,
             },
             {
-                img: "https://memories-app-1.herokuapp.com/stock-cat.jpg",
+                img: "https://memories-app-1.herokuapp.com/ui/stock-cat.jpg",
                 text: "Picking our cat up. We're calling her Suki....or Noodle",
                 icon: "favorite",
                 expanded: false,
             },
             {
-                img: "http://localhost:8080/ui/stock-busview.jpg",
+                img:
+                    "https://memories-app-1.herokuapp.com/ui/stock-busview.jpg",
                 text:
                     "We were on this hot bus all day lol. Aaron slept the whole journey!!! That view though",
                 icon: "airplanemode_active",
