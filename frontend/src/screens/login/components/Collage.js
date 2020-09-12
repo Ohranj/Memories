@@ -5,13 +5,14 @@ class Collage extends Component {
     state = {
         loginImages: [
             {
-                img: "http://localhost:8080/ui/stock-brithday.jpg",
+                img:
+                    "https://memories-app-1.herokuapp.com/ui/stock-brithday.jpg",
                 text: "Celebrating Kelly's birthday...third time this week :)",
                 icon: "local_bar",
                 expanded: true,
             },
             {
-                img: "http://localhost:8080/ui/stock-cat.jpg",
+                img: "https://memories-app-1.herokuapp.com/stock-cat.jpg",
                 text: "Picking our cat up. We're calling her Suki....or Noodle",
                 icon: "favorite",
                 expanded: false,
