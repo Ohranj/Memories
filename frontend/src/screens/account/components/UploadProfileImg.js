@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import ProfileImgTooltip from "./ProfileImgTooltip";
-
 import changeProfileImg from "../../../api/changeProfileImg";
 
 class UploadProfileImg extends Component {
@@ -67,7 +65,6 @@ class UploadProfileImg extends Component {
                         </button>
                     </div>
                 </form>
-                <ProfileImgTooltip hasUploaded={this.state.hasUploaded} />
             </div>
         );
     }
