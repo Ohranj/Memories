@@ -7,7 +7,7 @@
         "start": "node server.js",
         "server": "nodemon server.js",
         "dev": "concurrently \"yarn run server\" \"cd frontend && yarn start\"",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn install --prefix frontend && yarn run build --prefix frontend"
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.0",
