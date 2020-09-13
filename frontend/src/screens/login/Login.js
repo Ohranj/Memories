@@ -8,8 +8,26 @@ import RegisterForm from "./components/RegisterForm";
 import Collage from "./components/Collage";
 import RegisterBlurb from "./components/RegisterBlurb";
 
+import fetchUser from "../../api/fetchUser";
+
+const isUserLoggedIn = new Promise(async (res, rej) => {
+    const user = await fetchUser();
+    if (user.status === 200) {
+        return res();
+    } else {
+        rej();
+    }
+});
+
 class Login extends Component {
     render() {
+        isUserLoggedIn
+            .then(() => {
+                return (window.location.href = "/home");
+            })
+            .catch(() => {
+                return;
+            });
         return (
             <div className="loginContainer purple lighten-5">
                 <Header />

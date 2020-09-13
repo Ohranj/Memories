@@ -33,7 +33,7 @@ const multerUpload = multer({
 //Routes
 //Fetch user profile from session
 router.get("/user", (req, res) => {
-    res.send(req.user);
+    req.user ? res.send(req.user) : res.sendStatus(404);
 });
 ////
 //
