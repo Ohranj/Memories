@@ -15,6 +15,6 @@ export default ({ name, email }, cb) => {
             }
         })
         .catch(() => {
-            console.log("error");
+            alert("Maximum number of emails reached");
         });
 };

@@ -8,7 +8,6 @@ import SignOutBtn from "./SignOutBtn";
 
 class HeaderAuth extends Component {
     render() {
-        console.log(this.props.user);
         return (
             <div className="headerContainer">
                 <nav className="deep-purple lighten-2">

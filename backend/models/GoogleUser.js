@@ -15,6 +15,16 @@ const googleSchema = new Schema({
     additionalEmails: Array,
 });
 
+googleSchema.pre("findOneAndUpdate", async function (next) {
+    if (Object.keys(this._update)[0] === "$push") {
+        const document = await this.model.findOne(this);
+        document.additionalEmails.length >= 9
+            ? next(new Error("Email limit reached"))
+            : next();
+    }
+    next();
+});
+
 const GoogleModel = model("Google", googleSchema);
 
 module.exports = GoogleModel;

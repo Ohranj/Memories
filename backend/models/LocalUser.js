@@ -27,6 +27,16 @@ localSchema.pre("save", function (next) {
     });
 });
 
+localSchema.pre("findOneAndUpdate", async function (next) {
+    if (Object.keys(this._update)[0] === "$push") {
+        const document = await this.model.findOne(this);
+        document.additionalEmails.length >= 9
+            ? next(new Error("Email limit reached"))
+            : next();
+    }
+    next();
+});
+
 const LocalModel = model("Local", localSchema);
 
 module.exports = LocalModel;

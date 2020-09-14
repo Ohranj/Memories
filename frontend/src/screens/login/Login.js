@@ -12,11 +12,7 @@ import fetchUser from "../../api/fetchUser";
 
 const isUserLoggedIn = new Promise(async (res, rej) => {
     const user = await fetchUser();
-    if (user.status === 200) {
-        return res();
-    } else {
-        rej();
-    }
+    user.status === 200 ? res() : rej();
 });
 
 class Login extends Component {
