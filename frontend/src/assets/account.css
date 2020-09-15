@@ -56,10 +56,24 @@ input:active {
 .manageEmailsContainer {
     position: relative;
 }
+.setEmailCheck > div > i,
 .manageEmailsContainer > div > i {
     margin: 0 10px;
     cursor: pointer;
     color: #9575cd;
+}
+.setEmailCheckIconContainer {
+    position: relative;
+}
+.setEmailCheckIconContainer > div {
+    position: absolute;
+    left: 50px;
+    top: -20px;
+    width: 325px;
+    color: #ffffff;
+    background-color: #9575cd;
+    z-index: 1;
+    padding: 5px;
 }
 .emailsTooltip {
     width: 50%;

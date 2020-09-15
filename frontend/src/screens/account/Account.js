@@ -6,7 +6,7 @@ import HeaderAuth from "../../utilityComponents/HeaderAuth";
 import UploadProfileImg from "./components/UploadProfileImg";
 import ManageEmails from "./components/ManageEmails";
 import RenderEmails from "./components/RenderEmailsContainer";
-import SetEmailTime from "./components/SetEmailTime";
+import SetEmailCheck from "./components/SetEmailCheck";
 
 class Account extends Component {
     render() {
@@ -18,7 +18,7 @@ class Account extends Component {
                         <UploadProfileImg />
                     </div>
                     <div className="col s6 offset-s3">
-                        <SetEmailTime />
+                        <SetEmailCheck />
                     </div>
                     <div className="col s6 offset-s3">
                         <ManageEmails />

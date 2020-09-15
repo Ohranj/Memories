@@ -22,5 +22,5 @@ const cron = require("node-cron");
         });
     });
 })()
-    .then(console.log("Nodemailer running daily at 7:30am"))
+    .then(console.log("Emails sent daily at 7:30am"))
     .catch(console.error);

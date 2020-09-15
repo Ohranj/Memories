@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import SetEmailTooltip from "./SetEmailTooltip";
+
 import setEmailTime from "../../../api/setEmailTime";
 
-class SetEmailTime extends Component {
+class SetEmailCheck extends Component {
     state = {
         checked: true,
+        displayTooltip: false,
     };
 
     componentDidMount() {
@@ -18,16 +21,31 @@ class SetEmailTime extends Component {
     };
 
     render() {
-        console.log(this.props.user);
         return (
-            <div className="row valign-wrapper">
+            <div className="row valign-wrapper setEmailCheck">
                 <div className="col s4">Send email notifications</div>
+                <div className="col s2 valign-wrapper setEmailCheckIconContainer">
+                    <i
+                        className="material-icons"
+                        onMouseEnter={() =>
+                            this.setState({ displayTooltip: true })
+                        }
+                        onMouseLeave={() =>
+                            this.setState({ displayTooltip: false })
+                        }
+                    >
+                        info
+                    </i>
+                    <SetEmailTooltip
+                        displayTooltip={this.state.displayTooltip}
+                    />
+                </div>
                 <form
-                    className="col s8 valign-wrapper"
+                    className="col s6 valign-wrapper"
                     onSubmit={this.submitEmailTime}
                 >
-                    <div className="col s4 input-field emailTimeInput">
-                        <div class="switch">
+                    <div className="input-field emailTimeInput">
+                        <div className="switch">
                             <label>
                                 Off
                                 <input
@@ -39,7 +57,7 @@ class SetEmailTime extends Component {
                                         })
                                     }
                                 />
-                                <span class="lever"></span>
+                                <span className="lever"></span>
                                 On
                             </label>
                         </div>
@@ -61,4 +79,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(SetEmailTime);
+export default connect(mapStateToProps)(SetEmailCheck);
