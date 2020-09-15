@@ -7,6 +7,7 @@ const modelToSearch = require("./backend/middleware/modelToSearch");
 require("./backend/services/mongoDB");
 require("./backend/services/passport");
 require("dotenv").config();
+require("./backend/services/nodemailer");
 
 const { loginRoutes } = require("./backend/routes/login");
 const { registerRoutes } = require("./backend/routes/register");
