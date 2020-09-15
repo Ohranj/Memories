@@ -17,6 +17,10 @@ const localSchema = new Schema({
     profileImg: String,
     memories: Array,
     additionalEmails: Array,
+    notify: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 localSchema.pre("save", function (next) {

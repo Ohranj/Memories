@@ -38,6 +38,19 @@ router.get("/user", (req, res) => {
 ////
 //
 
+//Configure whether send email notifications
+router.post("/email", (req, res) => {
+    req.model.findByIdAndUpdate(
+        req.user.id,
+        { notify: req.body.checked },
+        (err, success) => {
+            success ? res.sendStatus(201) : res.sendStatus(401);
+        }
+    );
+});
+////
+//
+
 //Update user profile image, save to server and change in MongoDB
 router.post("/newprofileimg", multerUpload.single("file"), (req, res) => {
     req.model.findByIdAndUpdate(

@@ -13,6 +13,10 @@ const googleSchema = new Schema({
     profileImg: String,
     memories: Array,
     additionalEmails: Array,
+    notify: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 googleSchema.pre("findOneAndUpdate", async function (next) {

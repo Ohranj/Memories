@@ -3,6 +3,12 @@ input:active {
     border-bottom: 1px solid #9575cd !important;
     box-shadow: 0 1px 0 0 #9575cd !important;
 }
+.switch label input[type="checkbox"]:checked + .lever {
+    background-color: #f4f4f4;
+}
+.switch label input[type="checkbox"]:checked + .lever:after {
+    background-color: #9675cd;
+}
 ::-webkit-scrollbar {
     display: none;
 }
@@ -43,6 +49,9 @@ input:active {
 }
 .profileImgTooltip > .preloader-wrapper {
     margin-right: 10px;
+}
+.emailTimeInput {
+    margin: 0 !important;
 }
 .manageEmailsContainer {
     position: relative;

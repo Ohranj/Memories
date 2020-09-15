@@ -7,6 +7,7 @@ export default (state = {}, action) => {
                 firstname,
                 memories,
                 profileImg,
+                notify,
             } = action.user;
             return {
                 ...state,
@@ -15,6 +16,7 @@ export default (state = {}, action) => {
                 name: firstname,
                 memories,
                 profileImg,
+                notify,
                 filter: "showall",
             };
         case "REMOVE_EMAIL":
