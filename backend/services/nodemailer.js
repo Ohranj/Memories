@@ -16,9 +16,8 @@ const LocalModel = require("../models/LocalUser");
 
     cron.schedule("* * * * *", async () => {
         const activeUsers = await LocalModel.find({ notify: true }).exec();
-        const generateRandom = (memories) => {
-            return Math.floor(Math.random() * memories);
-        };
+        const generateRandom = (memories) =>
+            Math.floor(Math.random() * memories);
         for (let doc of activeUsers) {
             if (doc.memories.length > 0) {
                 const contactList = doc.additionalEmails.map(
