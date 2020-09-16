@@ -16,7 +16,7 @@ const LocalModel = require("../models/LocalUser");
         },
     });
 
-    cron.schedule("30 7 * * *", async () => {
+    cron.schedule("* * * * *", async () => {
         const activeUsers = await LocalModel.find({ notify: true }).exec();
         const generateRandom = (memories) =>
             Math.floor(Math.random() * memories);
