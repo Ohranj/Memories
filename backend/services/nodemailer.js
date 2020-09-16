@@ -14,46 +14,33 @@ const LocalModel = require("../models/LocalUser");
         },
     });
 
-    cron.schedule("30 7 * * *", async () => {
-        const test = await LocalModel.find({ notify: true }).exec();
+    cron.schedule("* * * * *", async () => {
+        const activeUsers = await LocalModel.find({ notify: true }).exec();
         const generateRandom = (memories) => {
             return Math.floor(Math.random() * memories);
         };
-        for (let doc of test) {
+        for (let doc of activeUsers) {
             if (doc.memories.length > 0) {
-                const contactList = doc.additionalEmails.map((item) => {
-                    return item.email;
-                });
+                const contactList = doc.additionalEmails.map(
+                    (item) => item.email
+                );
+                const memory =
+                    doc.memories[generateRandom(doc.memories.length)];
                 transporter.sendMail({
                     from: '"Memories" <ajdorrington18@gmail.com>',
                     to: [...contactList, doc.email],
                     subject: "Daily Memory",
                     text: "Daily Memory",
                     html: `
-                        <h1>${
-                            doc.memories[generateRandom(doc.memories.length)]
-                                .title
-                        }</h1>
+                        <h1>${memory.title}</h1>
                         <ul>
-                            <li>Scenario:- ${
-                                doc.memories[
-                                    generateRandom(doc.memories.length)
-                                ].scenario
-                            }</li>
-                            <li>Date:- ${
-                                doc.memories[
-                                    generateRandom(doc.memories.length)
-                                ].date
-                            }</li>
+                            <li>Scenario:- ${memory.scenario}</li>
+                            <li>Date:- ${memory.date
+                                .toString()
+                                .substring(0, 15)}</li>
                         </ul>
-                        <img src=${
-                            doc.memories[generateRandom(doc.memories.length)]
-                                .memoryImg
-                        } />
-                        <p>${
-                            doc.memories[generateRandom(doc.memories.length)]
-                                .blurb
-                        }</p>
+                        <img src=${memory.memoryImg} />
+                        <p>${memory.blurb}</p>
                     `,
                 });
             } else {
