@@ -1,6 +1,8 @@
 const nodemailer = require("nodemailer");
 const cron = require("node-cron");
 
+require("dotenv").config();
+
 const LocalModel = require("../models/LocalUser");
 
 (async () => {
@@ -9,8 +11,8 @@ const LocalModel = require("../models/LocalUser");
         port: 587,
         secure: false,
         auth: {
-            user: "ajdorrington18@gmail.com",
-            pass: "Football18",
+            user: process.env.nodeMailerUser,
+            pass: process.env.nodeMailerPassword,
         },
     });
 
