@@ -34,7 +34,7 @@ const LocalModel = require("../models/LocalUser");
                         <h1>${memory.title}</h1>
                         <ul>
                             <li>Scenario:- ${memory.scenario}</li>
-                            <li>Date:- ${memory.date
+                            <li>Date of memory:- ${memory.date
                                 .toString()
                                 .substring(0, 15)}</li>
                         </ul>
